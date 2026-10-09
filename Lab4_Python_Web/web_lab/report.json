@@ -1,0 +1,29 @@
+{
+  "student": "Galusca Dumitru",
+  "grupa": "SI-266",
+  "checked_at": "2026-10-09T18:14:50+03:00",
+  "requested_url": "https://cybercor.org",
+  "status_code": 200,
+  "final_url": "https://cybercor.org/",
+  "title": "CYBERCOR",
+  "ip_address": "172.67.211.96",
+  "redirects_from_http": [
+    {
+      "status": 301,
+      "url": "http://cybercor.org/",
+      "location": "https://cybercor.org/"
+    }
+  ],
+  "security_headers": {
+    "Strict-Transport-Security": false,
+    "Content-Security-Policy": false,
+    "X-Frame-Options": true,
+    "X-Content-Type-Options": true,
+    "Referrer-Policy": true
+  },
+  "security_score": "3/5",
+  "certificate_days_left": 55,
+  "links_internal": 1,
+  "links_external": 0,
+  "robots_disallowed_paths": []
+}
