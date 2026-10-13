@@ -29,35 +29,116 @@ SECURITY_HEADERS = [
 
 
 def build_url(host, path):
-    """Returnează o adresă completă, de exemplu https://example.com/login."""
-    pass
+    return "https://" + host + "/" + path.lstrip("/")
 
 
 def is_https(url):
-    """Returnează True dacă adresa începe cu https://, altfel False."""
-    pass
+    return url.startswith("https://")
 
 
 def show_response(url):
-    """Trimite un GET la url și afișează statusul și Content-Type."""
-    pass
+    try:
+        response = requests.get(url, timeout=5)
+        print("Status:", response.status_code)
+        print("Content-Type:", response.headers.get("Content-Type", "unknown"))
+    except requests.RequestException as error:
+        print("Error:", str(error))
 
 
 def check_site(url):
-    """Returnează un dicționar cu: status, content_type, length, server."""
-    pass
+    try:
+        response = requests.get(url, timeout=5)
+        return {
+            "status": response.status_code,
+            "content_type": response.headers.get("Content-Type", "unknown"),
+            "length": len(response.content),
+            "server": response.headers.get("Server", "unknown"),
+        }
+    except requests.RequestException as error:
+        return {"status": None, "error": str(error)}
 
 
 def scan_sites():
-    """Verifică toate site-urile din SITES, afișează-le pe cele care merg și un rezumat."""
-    pass
+    results = []
+
+    for url in SITES:
+        results.append((url, check_site(url)))
+
+    working = [
+        (url, result)
+        for url, result in results
+        if result.get("status") == 200
+    ]
+
+    working.sort(
+        key=lambda item: item[1]["length"],
+        reverse=True
+    )
+
+    for url, result in working:
+        print(f"{url} > 200, {result['length']}")
+
+    print(f"Done: {len(working)} | Erorrs: {len(results) - len(working)}")
 
 
 def check_headers(url):
-    """Returnează un dicționar cu: present, missing, score."""
-    pass
+    try:
+        response = requests.get(url, timeout=5)
+
+        received = {
+            header.lower()
+            for header in response.headers
+        }
+
+        present = [
+            header for header in SECURITY_HEADERS
+            if header.lower() in received
+        ]
+
+        missing = [
+            header for header in SECURITY_HEADERS
+            if header.lower() not in received
+        ]
+
+        score = int(
+            100 * len(present) / len(SECURITY_HEADERS)
+        )
+
+        return {
+            "present": present,
+            "missing": missing,
+            "score": score
+        }
+
+    except requests.RequestException as error:
+        return {"status": None, "error": str(error)}
 
 
 def retry_check(url, attempts=3):
-    """Încearcă de cel mult `attempts` ori; returnează un dicționar cu: status, attempts."""
-    pass
+    last_status = None
+    last_error = None
+    count = 0
+
+    for _ in range(max(0, attempts)):
+        count += 1
+
+        try:
+            response = requests.get(url, timeout=5)
+            last_status = response.status_code
+            last_error = None
+
+            if last_status < 500:
+                break
+
+        except requests.RequestException as error:
+            last_error = str(error)
+
+    result = {
+        "status": last_status,
+        "attempts": count
+    }
+
+    if last_status is None and last_error is not None:
+        result["error"] = last_error
+
+    return result
