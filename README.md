@@ -28,6 +28,11 @@ Exerciții de programare și utilizare a comenzilor Windows.
 - [Codul sursă](Lab4_Python_Web/web_lab/)
 - [Arhiva ZIP](Lab4_Python_Web/L4_TP_Galusca_Dumitru_SI-266.zip)
 
+### Laboratorul 6 — GitHub pas cu pas
+Configurarea Git, lucrul cu commit-uri, push, pull, istoricul proiectului și publicarea a două depozite de exercițiu.
+
+- [Raport](Laborator_6_GitHub/L6_TP_Galusca_Dumitru_SI-266.md)
+
 ## Tehnologii
 Python, Linux, Windows CMD, Git, GitHub, VirtualBox.
 
