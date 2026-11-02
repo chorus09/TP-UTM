@@ -33,6 +33,12 @@ Configurarea Git, lucrul cu commit-uri, push, pull, istoricul proiectului și pu
 
 - [Raport](Laborator_6_GitHub/L6_TP_Galusca_Dumitru_SI-266.md)
 
+### Laboratorul 7 — Colecții
+
+11 sarcini Python cu liste, tupluri, mulțimi și dicționare pentru analiza capturilor SUID, sudo și crontab.
+
+- [Lucrarea și instrucțiunile de rulare](Laborator_7/README.md)
+
 ## Tehnologii
 Python, Linux, Windows CMD, Git, GitHub, VirtualBox.
 
