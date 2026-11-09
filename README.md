@@ -39,6 +39,12 @@ Configurarea Git, lucrul cu commit-uri, push, pull, istoricul proiectului și pu
 
 - [Lucrarea și instrucțiunile de rulare](Laborator_7/README.md)
 
+### Laboratorul 8 — Funcții și excepții
+
+8 sarcini Python pentru analiza unui jurnal de autentificare și detectarea încercărilor de brute force.
+
+- [Lucrarea și instrucțiunile de rulare](Laborator_8/README.md)
+
 ## Tehnologii
 Python, Linux, Windows CMD, Git, GitHub, VirtualBox.
 
