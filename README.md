@@ -45,6 +45,12 @@ Configurarea Git, lucrul cu commit-uri, push, pull, istoricul proiectului și pu
 
 - [Lucrarea și instrucțiunile de rulare](Laborator_8/README.md)
 
+### Laboratorul 9 — Obiecte și clase
+
+8 sarcini Python pentru modelarea proceselor și evenimentelor Windows și generarea unui raport cu constatările suspecte.
+
+- [Lucrarea și instrucțiunile de rulare](Laborator_9/README.md)
+
 ## Tehnologii
 Python, Linux, Windows CMD, Git, GitHub, VirtualBox.
 
